@@ -1,0 +1,39 @@
+﻿@using ProjectSource.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+@*</div>*@
+
+             <center>  <h1>The Stone Clinic User Login</h1></center>
+                         
+
+            <center>   <table>
+
+                           <tbody>
+
+
+                        
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                            <tr>
+                                <td >
+                                   
+                                    <h3>Username: <input type="Text" name="Username" required/></h3>
+                                </td>
+                            </tr>
+                            <tr><td></td></tr>
+                            <tr>
+                                <td ><h3> Password: <input type="text" name="Paasword" required/></h3>
+                                </td>
+                            </tr>
+
+                            <tr><td> <input type="submit" value="Login" /></td></tr>
+
+
+
+                            }
+</table></center>
