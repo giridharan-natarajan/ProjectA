@@ -9,18 +9,20 @@ Paasword varchar(20)
 )
 Select * from userlogin
 drop table userlogin 
+insert into Userlogin values('krishna12','krishna','kumar','12345')
 
 ----Doctor adding table--
-Create table Doctor(
+Create table Doctortab(
 Doctorid int identity(100,1),
 Firstname varchar(20),
 Lastname varchar(20),
 Gender varchar(1),
 Specialization char(30),
-Visitinghours varchar(20)
+Visitinghours varchar(20),
+Timings varchar(10)
 )
-select * from Doctor
-drop table Doctortable
+select * from Doctortab
+drop table Doctor
 
 
 ---Table for patient---
@@ -53,10 +55,11 @@ create proc Doctoradd
 @lname varchar(20),
 @gen varchar(1),
 @spec char(20),
-@vis varchar(10)
+@vis varchar(10),
+@tim varchar(10)
 as
-insert into Doctor(Firstname,Lastname,Gender,Specialization,Visitinghours)
- values(@fname,@lname,@gen,@spec,@vis)
+insert into Doctortab(Firstname,Lastname,Gender,Specialization,Visitinghours,Timings)
+ values(@fname,@lname,@gen,@spec,@vis,@tim)
  exec Doctoradd 'Giri','dharan','M','Gynacology','1-2pm'
  drop proc Doctoradd
 

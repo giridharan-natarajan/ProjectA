@@ -1,4 +1,4 @@
-﻿@using ProjectSource.Models
+﻿@model ProjectSource.Models.User
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -17,18 +17,26 @@
 
 
                         
-                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            @using (Html.BeginForm("Validate", "Home", FormMethod.Post))
                             {
-                            <tr>
-                                <td >
-                                   
-                                    <h3>Username: <input type="Text" name="Username" required/></h3>
-                                </td>
-                            </tr>
+                               <tr>
+
+                                   <td>Username:</td>
+                                   <td>@Html.TextBoxFor(m => m.Username)</td>
+                                   <td>@Html.ValidationMessageFor(m => m.Username)</td>
+
+                                   @*<h3>Username: <input type="Text" name="Username" required/></h3>*@
+
+                               </tr>
                             <tr><td></td></tr>
                             <tr>
-                                <td ><h3> Password: <input type="text" name="Paasword" required/></h3>
-                                </td>
+
+                                <td>Password:</td>
+                                <td>@Html.TextBoxFor(m => m.Paasword)</td>
+                                <td>@Html.ValidationMessageFor(m => m.Paasword)</td>
+
+                                @*<td ><h3> Password: <input type="text" name="Paasword" required/></h3>
+        </td>*@
                             </tr>
 
                             <tr><td> <input type="submit" value="Login" /></td></tr>

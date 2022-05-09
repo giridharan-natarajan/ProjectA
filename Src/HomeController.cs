@@ -22,8 +22,19 @@ namespace ProjectSource.Controllers
         {
             return View();
         }
-        
-        public IActionResult Homepage()
+        [Route("Home/Validate")]
+        public IActionResult Validate(User us) //this to be given in index validate,customer
+        {
+            if (ModelState.IsValid)
+            {
+                return View("Homepage");
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+            public IActionResult Homepage()
         {
             return View();
         }

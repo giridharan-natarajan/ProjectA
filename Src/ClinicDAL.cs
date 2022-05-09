@@ -31,6 +31,7 @@ namespace ProjectSource.DAL
             cmd.Parameters.AddWithValue("@gen", doc.Gender);
             cmd.Parameters.AddWithValue("@spec", doc.Specialization);
             cmd.Parameters.AddWithValue("@vis", doc.Visitinghours);
+            cmd.Parameters.AddWithValue("@tim", doc.Timing);
             con.Open();
            int result = cmd.ExecuteNonQuery();
             con.Close();
