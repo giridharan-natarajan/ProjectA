@@ -1,0 +1,97 @@
+﻿@model ProjectSource.Models.User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+@*</div>*@
+<style>
+    table {
+        margin: 30px;
+        backdrop-filter: blur(5px);
+        background-color: rgba(0,0,0, 0.4);
+        color: white;
+        border-radius: 3px;
+        border: 3px solid #f1f1f1;
+    }
+
+    .button {
+        padding: 10px 10px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: blue;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 7px #999;
+    }
+
+        .button:hover {
+            background-color: #3e8e41
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+</style>
+@*<head>
+        <title>Stone clinic</title>
+        <link rel="icon" type="image/x-icon" href="~/images/Stone-Clinic-Logo.png">
+    </head>*@
+
+<body style="background-image: url('https://wallpaperaccess.com/full/4822115.jpg') ">
+</body>
+<center>
+    <br /><br /><br />
+    <h1><mark>The Stone Clinic User Login</mark></h1><br />
+
+    <img src="~/images/Stone-Clinic-Logo.png" width="100" height="100"><br />
+    <table cellpadding="10" cellspacing="5" align="center">
+        @Html.Raw(TempData["msg"])
+        <tbody>
+            @using (Html.BeginForm("Validate", "Home", FormMethod.Post))
+            {
+                <tr>
+
+                    <td>Username:</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Username)
+                        @Html.ValidationMessageFor(m => m.Username)
+                </td>
+            </tr>
+
+
+
+
+            <tr><td></td></tr>
+            <tr>
+
+                <td>Password:</td>
+                <td>@Html.PasswordFor(m => m.Paasword)</td>
+                <td>@Html.ValidationMessageFor(m => m.Paasword)</td>
+
+
+                @*<td ><h3> Password: <input type="text" name="Paasword" required/></h3>
+                    </td>*@
+            </tr>
+
+            <tr>
+                @*<td><td> <input type="submit" value="Login" /></td>*@
+            <td>
+            <td>
+                <button class="button" type="submit" value="Login">Login</button>
+            </td>
+        </tr>
+
+
+
+    }
+    </table>
+</center>
+

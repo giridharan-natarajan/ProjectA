@@ -1,0 +1,128 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<ProjectSource.Models.Doctor>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #Help {
+            top: 100px;
+            background-color: #0b7dda
+        }
+
+        #mySidenav a {
+            position: absolute;
+            left: -80px;
+            transition: 0.3s;
+            padding: 15px;
+            width: 100px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            border-radius: 0 5px 5px 0;
+        }
+
+            #mySidenav a:hover {
+                left: 0;
+            }
+
+        div {
+            text-align: left
+        }
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/340434.png');
+        }
+
+        img {
+            position: absolute;
+            top: 0px;
+            right: 1px;
+        }
+
+        div1 {
+            font: 800
+        }
+
+        div2 {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #0b7dda;
+                    color: black;
+                }
+                .topnav a.logout {
+                    background-color: red;
+                    color: white;
+                }
+    </style>
+    <div id="mySidenav" class="sidenav">
+        <a href="mailto:n.giridharan073@gmail.com" id="Help">Help</a>
+    </div>
+    <center>
+        <div2>
+            <div2 class="topnav">
+                <a class="active">Home</a>
+                <a href="https://localhost:44356/Home/Insertdo">Add Doctor</a>
+                <a href="https://localhost:44356/Home/Insertpat">Add Patient</a>
+                <a href="https://localhost:44356/Home/InsSchedule">Add Appointment</a>
+                <a href="https://localhost:44356/Home/Showappointmentt">Cancel Appointment</a>
+                <a class=" logout" style="font-size:18px" href="https://localhost:44356/Home/Index" onclick="return confirm('Are you sure want to Logout');">Logout<i class="fa fa-sign-out"></i></a>
+            </div2>
+    </center>
+
+
+
+    <body>
+        <br /><br /><br />
+        <center>
+
+            <img src="~/images/Stone-Clinic-Logo.png" width="125" height="125" />
+            <div1>  <h1> Instruction Page </h1></div1>
+            <br />
+
+            <hr />
+
+            <div>
+                <h4><b>Add Doctor</b></h4>
+                <p>
+                    After adding doctor the popup appears as Doctor added succesfully,The doctor details button displays Doctor information
+                    while clicking on delete on succesful delete it will redirect to add doctor page else it will return homepage
+                </p>
+                <br />
+                <h4><b>Add Patient</b></h4>
+                <p>After adding Patients the popup appears as patients added succesfully</p>
+                <br />
+                <h4><b>Add Appointments</b></h4>
+                <p>After adding doctor the popup appears as schedule added succesfully</p>
+                <br />
+                <h4><b>Delete,show Appointments</b></h4>
+                <p>After Deleting the page will be redirected to home page </p>
+
+            </div>
+       
+        <h5><b>Any queries click the help button</b></h5>
+        </center>
+    </body>
+

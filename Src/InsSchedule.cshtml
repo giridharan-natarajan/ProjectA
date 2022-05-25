@@ -1,0 +1,130 @@
+﻿@model ProjectSource.Models.Schedule
+
+@{
+    ViewData["Title"] = "InsertSchedule";
+}
+<style>
+    .btn-light {
+        background-color: #2196F3;
+        color: black;
+        border-radius: 4px
+    }
+
+    .btn-dark {
+        background-color: limegreen;
+        color: black;
+    }
+
+    body {
+        color: black;
+    }
+
+    img {
+        position: absolute;
+        top: 0px;
+        right: 1px;
+    }
+
+    div2 {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #0b7dda;
+                color: black;
+            }
+</style>
+<img src="~/images/Stone-Clinic-Logo.png" width="125" height="125" />
+@Html.Raw(TempData["msg"])
+<div2>
+    <div2 class="topnav">
+        <a href="https://localhost:44356/Home/HomePage">Home</a>
+        <a href="https://localhost:44356/Home/Insertdo">Add Doctor</a>
+        <a href="https://localhost:44356/Home/Insertpat">Add Patient</a>
+        <a class="active">Add Appointment</a>
+        <a href="https://localhost:44356/Home/Showappointmentt">Cancel Appointment</a>
+    </div2>
+    <br /><br /><br /><br />
+    <center>  <h3><mark>Insertappointment</mark></h3></center>
+
+
+    <hr />
+    <body style="background-image: url('https://wallpaperaccess.com/full/340434.png')">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="ScheduleAd" asp-controller="Home" method="post">
+                    <div class="form-group">
+                        <label asp-for="PatientId" class="control-label"></label>
+                        <input asp-for="PatientId" class="form-control" />
+                        <span asp-validation-for="PatientId" class="text-danger"></span>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Specializations" class="control-label"></label><br />
+                        @Html.RadioButtonFor(m => m.Specializations, "General")General <br />
+                        @Html.RadioButtonFor(m => m.Specializations, "InternalMedicine")InternalMedicine<br />
+                        @Html.RadioButtonFor(m => m.Specializations, "Pediatrics")Pediatrics<br />
+                        @Html.RadioButtonFor(m => m.Specializations, "Opthamology")Opthamology<br />
+                        @Html.RadioButtonFor(m => m.Specializations, "Ortho")Ortho<br />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DoctorName" class="control-label"></label>
+                        <input asp-for="DoctorName" class="form-control" />
+                        <span asp-validation-for="DoctorName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VisitDate" class="control-label"></label>
+                        <input type="date" asp-for="VisitDate" class="form-control" />
+                        <span asp-validation-for="VisitDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppointmentTime" class="control-label"></label>
+                        <input type="time" asp-for="AppointmentTime" class="form-control" />
+                        <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn-dark" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            @*<a asp-action="Index">Back to List</a>*@
+            <input type="button" value="Home" onclick="location.href = '@Url.Action("HomePage","Home")'" class="btn-danger" />
+            <input type="button" value="DoctorDetails" onclick="location.href = '@Url.Action("DoctorDetails","Home")'" class="btn-light" />
+            
+        </div>
+
+
+        <script>
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementsByName('VisitDate')[0].setAttribute('min', today);
+        </script>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+    </body>
+

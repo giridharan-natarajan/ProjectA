@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<ProjectSource.Models.Doctor>
+
+<style>
+    a {
+        color: white;
+    }
+    body {
+        background-image: url('https://wallpaperaccess.com/full/340434.png');
+    }
+    img {
+        position: absolute;
+        top: 0px;
+        right: 1px;
+    }
+    table {
+        margin: 30px;
+        backdrop-filter: blur(6px);
+        background-image: url('https://egertontm.com/wp-content/uploads/2018/06/blue-gradient-background.png');
+        color: white;
+        border-radius: 6px;
+        border: 2px;
+        box-shadow: 0 5px #666;
+    }
+
+    
+</style>
+<img src="~/images/Stone-Clinic-Logo.png" width="125" height="125" />
+<body>
+    <center>
+        <br />
+        <br />
+        <br />
+        <h3><mark>Doctor Availablity</mark></h3>
+        <hr />
+        <table align="center" border="1" width="100%">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayName("DoctorId")
+                    </th>
+                    <th>
+                        @Html.DisplayName("First Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Last Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Gender")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Specialization")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Visiting Hours")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Timing")
+                    </th>
+                    <th> Click Below To Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctorid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Specialization)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Visitinghours)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Timings)
+                    </td>
+                    <td> <a icon asp-action="DeleteDoctor" asp-route-id="@item.Doctorid">Delete</a></td>
+
+
+
+                </tr>
+
+                }
+            </tbody>
+
+        </table>
+          <input type="button" value="Return" onclick="location.href = '@Url.Action("InsSchedule","Home")'" class="btn-danger" /> 
+    </center>
+    >
+</body>
